@@ -1,2 +1,3 @@
-# Inflearn-Stady
-인프런 강의를 통한 학습내용 정리
+# Development Study
+
+개발 역량 향상을 위한 개인 학습 기록
