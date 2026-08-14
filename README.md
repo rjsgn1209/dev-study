@@ -10,6 +10,6 @@
 
 Windows 운영체제의 시스템 프로그래밍을 학습하며 프로세스, 스레드, 동기화, 메모리, IPC 등의 개념을 정리하고 실습 코드를 작성합니다.
 
-### [Java / Spring Boot](./spring-boot/README.md)
+### [Spring Boot](./spring-boot/README.md)
 
-Java와 Spring Boot를 학습하며 Java 기본 문법부터 Spring Framework, JDBC, 데이터베이스 연동 및 웹 애플리케이션 개발에 필요한 내용을 정리하고 실습합니다.
+Spring Boot를 학습하며 Spring Framework, JDBC, 데이터베이스 연동 및 웹 애플리케이션 개발에 필요한 내용을 정리하고 실습합니다.
