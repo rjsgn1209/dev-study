@@ -1,4 +1,4 @@
-﻿// AddressBook.cpp : LinkedList 형태의 주소록을 구현해보고 스레드를 활용한 대량 데이터를 파일로 저장하면서 주소록 기능도 정상적으로 동작할 수 있도록 코드 구현
+﻿// LinkedList 형태의 주소록을 구현해보고 스레드를 활용한 대량 데이터를 파일로 저장하면서 주소록 기능도 정상적으로 동작할 수 있도록 코드 구현
 //
 
 #include <iostream>
@@ -281,6 +281,7 @@ int main()
 		}
 
 		case 6:
+			std::cout << "주소록 전체를 삭제합니다." << std::endl;
 			removeAll();
 			break;
 
