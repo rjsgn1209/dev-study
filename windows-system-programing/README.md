@@ -53,22 +53,22 @@ Windows 시스템 프로그래밍을 학습하면서 정리한 개념과 관련 
 
 ### Process
 
-* [Process Inheritance](docs/Process/process-access-token-inheritance.md)
+* [Process Inheritance](docs/process/process-access-token-inheritance.md)
 
 ### Security
 
-* [Security Object](docs/Security/security-object.md)
+* [Security Object](docs/security/security-object.md)
 
 ### Thread
 
-* [Thread Basic](docs/Thread/thread-basic.md)
-* [Thread Control](docs/Thread/thread-control.md)
-* [Sleep](docs/Thread/sleep.md)
-* [TLS](docs/Synchronization/TLS.md)
-* [Thread Synchronization](docs/Synchronization/thread-synchronization.md)
-* [Critical Section](docs/Synchronization/critical-section.md)
-* [Event](docs/Synchronization/event.md)
-* [Semaphore](docs/Synchronization/semaphore.md)
+* [Thread Basic](docs/thread/thread-basic.md)
+* [Thread Control](docs/thread/thread-control.md)
+* [Sleep](docs/thread/sleep.md)
+* [TLS](docs/thread/TLS.md)
+* [Thread Synchronization](docs/thread/thread-synchronization.md)
+* [Critical Section](docs/thread/critical-section.md)
+* [Event](docs/thread/event.md)
+* [Semaphore](docs/thread/semaphore.md)
 
 ### Memory
 
