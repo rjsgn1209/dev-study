@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{55f45ee3-8f39-47db-9535-cbfeb4cfd894}</ProjectGuid>
+    <ProjectGuid>{A4633C38-6E04-4A40-BD14-72A8D7ECF0F2}</ProjectGuid>
     <RootNamespace>FileMappoing</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>FileMapping</ProjectName>
