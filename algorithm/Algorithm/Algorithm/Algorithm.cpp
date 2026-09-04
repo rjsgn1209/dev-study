@@ -7,6 +7,7 @@
 #include <climits>
 #include <algorithm>
 #include "vector.h"
+#include "stack.h"
 
 using namespace std;
 
@@ -214,20 +215,72 @@ vector<int> solution(vector<int> arr, int divisor) {
 }
 
 // K번째수
-vector<int> solution(vector<int> array, vector<vector<int>> commands) {
-	vector<int> answer;
-	for (vector<int> vec : commands)
-	{
-		int startIndex = vec[0] - 1;
-		int endIndex = vec[1];
-		int findIndex = vec[2] - 1;
+//vector<int> solution(vector<int> array, vector<vector<int>> commands) {
+//	vector<int> answer;
+//	for (vector<int> vec : commands)
+//	{
+//		int startIndex = vec[0] - 1;
+//		int endIndex = vec[1];
+//		int findIndex = vec[2] - 1;
+//
+//		vector<int> sub(array.begin() + startIndex, array.begin() + endIndex);
+//		sort(sub.begin(), sub.end());
+//		answer.push_back(sub[findIndex]);
+//	}
+//
+//	return answer;
+//}
 
-		vector<int> sub(array.begin() + startIndex, array.begin() + endIndex);
-		sort(sub.begin(), sub.end());
-		answer.push_back(sub[findIndex]);
+// 가장 가까운 같은 글자
+int* solution(const char* s) {
+	int size = strlen(s);
+	int* answer = (int*)malloc(sizeof(int) * size);
+
+	for (int i = 0; i < size;i++)
+	{
+		int findDist = -1;
+		int calcDist = 0;
+
+		for (int j = i - 1; j >= 0; j--)
+		{
+			if (s[i] == s[j])
+			{
+				calcDist += 1;
+				findDist = calcDist;
+				break;
+			}
+			else
+			{
+				calcDist += 1;
+			}
+		}
+		answer[i] = findDist;
 	}
 
 	return answer;
+}
+
+struct Person
+{
+	std::string name;
+	int age;
+	int score;
+};
+
+vector<Person> sortPerson(vector<Person> vec)
+{
+	sort(vec.begin(), vec.end(),
+		[](const Person& a, const Person& b)
+		{
+			if (a.age == b.age)
+			{
+				return a.score > b.score;
+			}
+
+			return a.age < b.age;
+		});
+
+	return vec;
 }
 
 int main()
@@ -275,7 +328,26 @@ int main()
 	vector<int> res = solution(arr, divisor);*/
 
 	// K번째수
-	vector<int> array = { 1,5,2,6,3,7,4 };
+	/*vector<int> array = { 1,5,2,6,3,7,4 };
 	vector<vector<int>> commands = { {2,5,3},{4,4,1},{1,7,3} };
-	vector<int> res = solution(array, commands);
+	vector<int> res = solution(array, commands);*/
+
+	/*const char* s = "foobar";
+	int* res = solution(s);
+
+	for (int i = 0; i < strlen(s); i++)
+	{
+		std::cout << res[i] << "\n";
+	}*/
+
+	/*vector<Person> vec {
+		{"Kim", 30, 80},
+		{"Lee", 25, 90},
+		{"Park", 25, 70},
+		{"Choi", 30, 95}
+	};
+	vector<Person> res = sortPerson(vec);*/
+
+	//stackBasic();
+	mystackFunction();
 }
