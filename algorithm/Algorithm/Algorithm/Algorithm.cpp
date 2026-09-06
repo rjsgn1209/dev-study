@@ -8,6 +8,12 @@
 #include <algorithm>
 #include "vector.h"
 #include "stack.h"
+#include "map.h"
+#include "set.h"
+#include <stack>
+#include <queue>
+#include <unordered_set>
+#include <unordered_map>
 
 using namespace std;
 
@@ -190,29 +196,29 @@ vector<string> stringIndexSort(vector<string> strings, int n) {
 //}
 
 // 나누어 떨어지는 숫자배열
-vector<int> solution(vector<int> arr, int divisor) {
-	vector<int> answer;
-
-	for (int var : arr)
-	{
-		int remain = var % divisor;
-		if (remain == 0)
-		{
-			answer.push_back(var);
-		}
-	}
-
-	if (answer.size() > 0)
-	{
-		sort(answer.begin(), answer.end());
-	}
-	else
-	{
-		answer.push_back(-1);
-	}
-
-	return answer;
-}
+//vector<int> solution(vector<int> arr, int divisor) {
+//	vector<int> answer;
+//
+//	for (int var : arr)
+//	{
+//		int remain = var % divisor;
+//		if (remain == 0)
+//		{
+//			answer.push_back(var);
+//		}
+//	}
+//
+//	if (answer.size() > 0)
+//	{
+//		sort(answer.begin(), answer.end());
+//	}
+//	else
+//	{
+//		answer.push_back(-1);
+//	}
+//
+//	return answer;
+//}
 
 // K번째수
 //vector<int> solution(vector<int> array, vector<vector<int>> commands) {
@@ -231,56 +237,306 @@ vector<int> solution(vector<int> arr, int divisor) {
 //	return answer;
 //}
 
-// 가장 가까운 같은 글자
-int* solution(const char* s) {
-	int size = strlen(s);
-	int* answer = (int*)malloc(sizeof(int) * size);
+//// 가장 가까운 같은 글자
+//int* solution(const char* s) {
+//	int size = strlen(s);
+//	int* answer = (int*)malloc(sizeof(int) * size);
+//
+//	for (int i = 0; i < size;i++)
+//	{
+//		int findDist = -1;
+//		int calcDist = 0;
+//
+//		for (int j = i - 1; j >= 0; j--)
+//		{
+//			if (s[i] == s[j])
+//			{
+//				calcDist += 1;
+//				findDist = calcDist;
+//				break;
+//			}
+//			else
+//			{
+//				calcDist += 1;
+//			}
+//		}
+//		answer[i] = findDist;
+//	}
+//
+//	return answer;
+//}
+//
+//struct Person
+//{
+//	std::string name;
+//	int age;
+//	int score;
+//};
+//
+//vector<Person> sortPerson(vector<Person> vec)
+//{
+//	sort(vec.begin(), vec.end(),
+//		[](const Person& a, const Person& b)
+//		{
+//			if (a.age == b.age)
+//			{
+//				return a.score > b.score;
+//			}
+//
+//			return a.age < b.age;
+//		});
+//
+//	return vec;
+//}
 
-	for (int i = 0; i < size;i++)
-	{
-		int findDist = -1;
-		int calcDist = 0;
+// 올바른 괄호
+//bool solution(string s) {
+//	stack<char> stack;
+//
+//	for (int i = 0; i < s.size();i++)
+//	{
+//		if (s[i] == '(')
+//		{
+//			stack.push(s[i]);
+//		}		
+//		else if(s[i] == ')')
+//		{
+//			if (stack.empty())
+//			{
+//				stack.push(s[i]);
+//				break;
+//			}
+//			else
+//			{
+//				stack.pop();
+//			}
+//		}
+//	}
+//
+//	return stack.empty();
+//}
 
-		for (int j = i - 1; j >= 0; j--)
-		{
-			if (s[i] == s[j])
-			{
-				calcDist += 1;
-				findDist = calcDist;
-				break;
-			}
-			else
-			{
-				calcDist += 1;
-			}
-		}
-		answer[i] = findDist;
-	}
+// 기능개발
+//vector<int> solution(vector<int> progresses, vector<int> speeds) {
+//	vector<int> answer;
+//	deque<int> progDeque;
+//	deque<int> spdDeque;
+//	int cnt = 0;
+//
+//	for (int i = 0; i < progresses.size(); i++)
+//	{
+//		progDeque.push_back(progresses[i]);
+//		spdDeque.push_back(speeds[i]);
+//	}
+//
+//	while (!progDeque.empty())
+//	{
+//		int size = progDeque.size();
+//		for (int i = 0; i < size; i++)
+//		{
+//			progDeque[i] += spdDeque[i];
+//		}
+//
+//		for (int i = 0; i < size; i++)
+//		{
+//			if (progDeque.front() > 100)
+//			{
+//				cnt += 1;
+//				progDeque.pop_front();
+//				spdDeque.pop_front();
+//			}
+//			else
+//			{
+//				break;
+//			}
+//		}
+//
+//		if (cnt != 0)
+//		{
+//			answer.push_back(cnt);
+//			cnt = 0;
+//		}
+//	}
+//
+//
+//	return answer;
+//}
 
-	return answer;
-}
+// 프로세스
+//int solution(vector<int> priorities, int location) {
+//	queue<int> que;
+//
+//	for (int i = 0; i < priorities.size();i++)
+//	{
+//		que.push(i);
+//	}
+//
+//	bool excute = false;
+//	int cycle = 0;
+//	int currentIndex = -1;
+//	while (!que.empty())
+//	{
+//		currentIndex = que.front();
+//		que.pop();
+//		excute = true;
+//
+//		for (int i = 0; i < priorities.size();i++)
+//		{
+//			if (priorities[currentIndex] < priorities[i])
+//			{
+//				que.push(currentIndex);
+//				excute = false;
+//				break;
+//			}
+//		}
+//
+//		if (excute)
+//		{
+//			cycle += 1;
+//
+//			priorities[currentIndex] = 0;
+//
+//			if (currentIndex == location)
+//			{
+//				break;
+//			}
+//		}
+//	}
+//
+//	return cycle;
+//}
 
-struct Person
+// 폰켓몬
+//int solution(vector<int> nums)
+//{
+//	int count = nums.size() / 2;
+//	unordered_set<int> unorderedSet;
+//
+//	for (const int var : nums)
+//	{
+//		unorderedSet.insert(var);
+//	}
+//
+//	return unorderedSet.size() > count ? count : unorderedSet.size();
+//}
+
+// 완주하지 못한 선수
+//string solution(vector<string> participant, vector<string> completion) {
+//	string answer = "";
+//	unordered_map<string, int> participantMap;
+//	unordered_map<string, int> completionMap;
+//
+//	for (string var : participant)
+//	{
+//		participantMap[var]++;
+//	}
+//
+//	for (string var : completion)
+//	{
+//		completionMap[var]++;
+//	}
+//
+//	for (const auto& var : participantMap)
+//	{
+//		if (var.second != completionMap[var.first])
+//		{
+//			return var.first;
+//		}
+//	}
+//
+//	return answer;
+//}
+
+// 의상
+//int solution(vector<vector<string>> clothes) {
+//	int answer = 1;
+//	unordered_map<string, vector<string>> map;
+//	unordered_set<string> keys;
+//
+//	for (const auto& vec : clothes)
+//	{
+//		map[vec[1]].push_back(vec[0]);
+//		keys.insert(vec[1]);
+//	}
+//	
+//	for (const string& var : keys)
+//	{
+//		answer *= map[var].size() + 1;		
+//	}
+//
+//
+//	return answer - 1;
+//}
+
+// 전화번호 목록
+//bool solution(vector<string> phone_book) {
+//	bool answer = true;
+//	unordered_set<string> set;
+//	vector<string> vec;
+//	vec.resize(phone_book.size());
+//	int maxSize = 0;
+//
+//	// 1번 방법
+//	for (int i = 0; i < phone_book.size(); i++)
+//	{
+//		if (maxSize < phone_book[i].size())
+//		{
+//			maxSize = phone_book[i].size();
+//		}
+//	}
+//
+//	
+//	for (int index = 0; index < maxSize; index++)
+//	{
+//		bool findCompletion = false;
+//		for (int i = 0; i < phone_book.size(); i++)
+//		{
+//			if (index < phone_book[i].size())
+//			{
+//				char c = phone_book[i][index];
+//				vec[i].push_back(c);
+//				if (vec[i].size() == phone_book[i].size())
+//				{
+//					findCompletion = true;
+//				}
+//			}
+//		}
+//
+//		if (findCompletion)
+//		{
+//			set.clear();
+//			for (const string& var : vec)
+//			{
+//				if (!set.insert(var).second)
+//				{
+//					return false;
+//				}
+//			}
+//		}
+//	}
+//	
+//	// 2번 방법
+//	/*for (int i = 0; i < phone_book.size() - 1; i++)
+//	{
+//		for (int j = i + 1; j < phone_book.size(); j++)
+//		{
+//			if (phone_book[i].size() <= phone_book[j].size())
+//			{
+//				string sub = phone_book[j].substr(0, phone_book[i].size());
+//				if (phone_book[i] == sub)
+//				{
+//					return false;
+//				}
+//			}
+//		}
+//	}*/
+//
+//	return answer;
+//}
+
+void Func()
 {
-	std::string name;
-	int age;
-	int score;
-};
-
-vector<Person> sortPerson(vector<Person> vec)
-{
-	sort(vec.begin(), vec.end(),
-		[](const Person& a, const Person& b)
-		{
-			if (a.age == b.age)
-			{
-				return a.score > b.score;
-			}
-
-			return a.age < b.age;
-		});
-
-	return vec;
+	std::unique_ptr<int> ptr = std::make_unique<int>();
 }
 
 int main()
@@ -349,5 +605,35 @@ int main()
 	vector<Person> res = sortPerson(vec);*/
 
 	//stackBasic();
-	mystackFunction();
+	//mystackFunction();
+
+	// 기능개발
+	/*vector<int> progressse = { 95,90,99,99,80,99 };
+	vector<int> speeds = { 1,1,1,1,1,1 };
+	vector<int> res = solution(progressse, speeds);*/
+
+	// 프로세스
+	/*vector<int> priorities = { 2,1,3,2 };
+	int location = 2;
+	int res = solution(priorities, location);*/
+
+	//mapBasic();
+	//setBasic();
+
+	// 폰켓몬
+	/*vector<int> nums = { 3,3,3,2,2,2 };
+	int res = solution(nums);*/
+
+	// 완주하지 못한 선수
+	/*vector<string> participant = { "mislav", "stanko", "mislav", "ana" };
+	vector<string> completion = { "stanko", "ana", "mislav" };
+	string res = solution(participant, completion);*/
+
+	// 의상
+	/*vector<vector<string>> clothes = { { "yellow_hat", "headgear" }, { "blue_sunglasses", "eyewear" }, { "green_turban", "headgear" } };
+	int res = solution(clothes);*/
+
+	// 전화번호 목록
+	vector<string> vec = { "12","123","1235","567","88" };
+	bool res = solution(vec);
 }
