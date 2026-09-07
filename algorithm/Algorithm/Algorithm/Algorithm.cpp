@@ -6,14 +6,17 @@
 #include <string>
 #include <climits>
 #include <algorithm>
-#include "vector.h"
-#include "stack.h"
-#include "map.h"
-#include "set.h"
 #include <stack>
 #include <queue>
 #include <unordered_set>
 #include <unordered_map>
+
+#include "vector.h"
+#include "stack.h"
+#include "map.h"
+#include "set.h"
+#include "binary-search.h"
+
 
 using namespace std;
 
@@ -534,11 +537,6 @@ vector<string> stringIndexSort(vector<string> strings, int n) {
 //	return answer;
 //}
 
-void Func()
-{
-	std::unique_ptr<int> ptr = std::make_unique<int>();
-}
-
 int main()
 {
 	//pointerFunction();
@@ -634,6 +632,8 @@ int main()
 	int res = solution(clothes);*/
 
 	// 전화번호 목록
-	vector<string> vec = { "12","123","1235","567","88" };
-	bool res = solution(vec);
+	/*vector<string> vec = { "12","123","1235","567","88" };
+	bool res = solution(vec);*/
+
+	binarySearchBasic();
 }
