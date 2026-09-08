@@ -101,9 +101,96 @@ int LowerBound(const vector<int>& nums, int target)
 	return -1;
 }
 
+int UpperBound(const vector<int>& nums, int target)
+{
+	// target보다 큰 값이 처음 등장하는 index 반환
+
+	// 그런 값이 없다면
+	// nums.size() 반환
+
+	int left = 0;
+	int right = static_cast<int>(nums.size()) - 1;
+	int answer = static_cast<int>(nums.size());
+
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+
+		if (nums[mid] > target)
+		{
+			answer = mid;
+			right = mid - 1;
+		}
+		else
+		{
+			left = mid + 1;
+		}
+	}
+
+	return answer;
+}
+
+bool HasPairSum(const vector<int>& nums, int target)
+{
+	// nums는 오름차순 정렬되어 있다고 가정
+
+	int left = 0;
+	int right = static_cast<int>(nums.size()) - 1;
+
+	while (left < right)
+	{
+		int sum = nums[left] + nums[right];
+		if (sum == target)
+		{
+			return true;
+		}
+		else if (sum < target)
+		{
+			left++;
+		}
+		else
+		{
+			right--;
+		}
+	}
+
+	return false;
+}
+
+bool HasSubarraySum(const vector<int>& nums, int target)
+{
+	// 연속 부분 배열 합이 target이면 true
+	// 없으면 false
+
+	int left = 0;
+	int sum = 0;
+
+	while (left < nums.size())
+	{
+		for (int right = 0; right < nums.size(); ++right)
+		{
+			sum += nums[right];
+
+			if (sum == target)
+			{
+				return true;
+			}
+			else if (sum > target)
+			{
+				sum = 0;
+				left++;
+				right = left;
+			}
+		}
+		
+	}
+
+	return false;
+}
+
 void binarySearchBasic()
 {
-	vector<int> nums = { 1,3,3,3,5,7,9 };
-	int target = 3;
-	bool res = LowerBound(nums, target);
+	vector<int> nums = { 1, 2, 1, 3, 2 };
+	int target = 5;
+	bool res = HasSubarraySum(nums, target);
 }
