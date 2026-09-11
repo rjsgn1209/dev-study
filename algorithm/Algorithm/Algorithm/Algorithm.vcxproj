@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="binary-search.cpp" />
+    <ClCompile Include="DFS-BFS.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="set.cpp" />
@@ -133,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary-search.h" />
+    <ClInclude Include="DFS-BFS.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="set.h" />

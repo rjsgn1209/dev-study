@@ -16,6 +16,7 @@
 #include "map.h"
 #include "set.h"
 #include "binary-search.h"
+#include "DFS-BFS.h"
 
 
 using namespace std;
@@ -635,5 +636,6 @@ int main()
 	/*vector<string> vec = { "12","123","1235","567","88" };
 	bool res = solution(vec);*/
 
-	binarySearchBasic();
+	//binarySearchBasic();
+	dfsBfsBasic();
 }
