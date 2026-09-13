@@ -130,6 +130,7 @@
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="set.cpp" />
     <ClCompile Include="stack.cpp" />
+    <ClCompile Include="string.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="queue.h" />
     <ClInclude Include="set.h" />
     <ClInclude Include="stack.h" />
+    <ClInclude Include="string.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

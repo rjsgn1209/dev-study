@@ -2,33 +2,33 @@
 
 using namespace std;
 
-bool BinarySearch(const vector<int>& nums, int target)
-{
-	// 备泅
-	vector<int> vec = nums;
-
-	while (vec.size() != 1)
-	{
-		vector<int> vecA(
-			vec.begin(),
-			vec.begin() + (vec.size() / 2));
-
-		vector<int> vecB(
-			vec.begin() + (vec.size() / 2),
-			vec.end());
-
-		if (vecA.back() >= target)
-		{
-			vec = vecA;
-		}
-		else
-		{
-			vec = vecB;
-		}
-	}
-
-	return vec.front() == target;
-}
+//bool BinarySearch(const vector<int>& nums, int target)
+//{
+//	// 备泅
+//	vector<int> vec = nums;
+//
+//	while (vec.size() != 1)
+//	{
+//		vector<int> vecA(
+//			vec.begin(),
+//			vec.begin() + (vec.size() / 2));
+//
+//		vector<int> vecB(
+//			vec.begin() + (vec.size() / 2),
+//			vec.end());
+//
+//		if (vecA.back() >= target)
+//		{
+//			vec = vecA;
+//		}
+//		else
+//		{
+//			vec = vecB;
+//		}
+//	}
+//
+//	return vec.front() == target;
+//}
 
 int BinarySearchIndex(const vector<int>& nums, int target)
 {
@@ -182,15 +182,79 @@ bool HasSubarraySum(const vector<int>& nums, int target)
 				right = left;
 			}
 		}
-		
+
 	}
 
 	return false;
 }
 
+int BinarySearch(
+	const vector<int>& nums,
+	int target)
+{
+	// 备泅
+	int left = 0;
+	int right = static_cast<int>(nums.size()) - 1;
+
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (target == nums[mid])
+		{
+			return mid;
+		}
+		else if (target > nums[mid])
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			right = mid - 1;
+		}
+	}
+
+	return -1;
+}
+
+pair<int, int> FindPair(
+	const vector<int>& nums,
+	int target)
+{
+	// 备泅
+	int left = 0;
+	int right = static_cast<int>(nums.size()) - 1;
+
+	while (left < right)
+	{
+		int sum = nums[left] + nums[right];
+		if (target == sum)
+		{
+			return pair<int, int>(left, right);
+		}
+		else if (target > sum)
+		{
+			left++;
+		}
+		else
+		{
+			right--;
+		}
+	}
+
+	return pair<int, int>(-1, -1);
+}
+
 void binarySearchBasic()
 {
-	vector<int> nums = { 1, 2, 1, 3, 2 };
+	/*vector<int> nums = { 1, 2, 1, 3, 2 };
 	int target = 5;
-	bool res = HasSubarraySum(nums, target);
-}
+	bool res = HasSubarraySum(nums, target);*/
+
+	/*vector<int> nums = { 1, 3, 5, 7, 9, 11 };
+	int target = 1;
+	int res = BinarySearch(nums, target);*/
+
+	vector<int> nums = { 1, 2, 4, 7, 11, 15 };
+	int target = 15;
+	pair<int, int> res = FindPair(nums, target);
+	}

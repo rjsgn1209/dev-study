@@ -17,6 +17,7 @@
 #include "set.h"
 #include "binary-search.h"
 #include "DFS-BFS.h"
+#include "string.h"
 
 
 using namespace std;
@@ -538,6 +539,147 @@ vector<string> stringIndexSort(vector<string> strings, int n) {
 //	return answer;
 //}
 
+string FindFirstDuplicate(const vector<string>& users)
+{
+	unordered_set<string> s;
+
+	for (const string& user : users)
+	{
+		if (!s.insert(user).second)
+		{
+			return user;
+		}
+	}
+
+	return "";
+}
+
+pair<int, int> FindClosestPair(
+	const vector<int>& nums,
+	int target)
+{
+	// 구현
+	int left = 0;
+	int right = static_cast<int>(nums.size()) - 1;
+	int answer = nums[left] + nums[right];
+	int diff = abs(target - (nums[left] + nums[right]));
+	bool moveLeft = false, moveRight = false;
+
+	while (left <= right)
+	{
+		answer = nums[left] + nums[right];
+
+		if (target == answer)
+		{
+			return pair<int, int>(nums[left], nums[right]);
+		}
+		else if (diff < abs(target - answer))
+		{
+			if (moveLeft)
+			{
+				return pair<int, int>(nums[--left], nums[right]);
+			}
+			else if (moveRight)
+			{
+				return pair<int, int>(nums[left], nums[++right]);
+			}
+		}
+		else
+		{
+			diff = target - (nums[left] + nums[right]);
+		}
+
+		if (answer < target)
+		{
+			left++;
+			moveLeft = true;
+			moveRight = false;
+		}
+		else
+		{
+			right--;
+			moveLeft = false;
+			moveRight = true;
+		}
+	}
+}
+
+//int FindMinDistance(
+//	const vector<vector<int>>& graph,
+//	int start,
+//	int target)
+//{
+//	// 구현
+//	queue<int> q;
+//	vector<bool> visited(graph.size(), false);
+//	vector<int> distance(graph.size(), -1);
+//
+//	q.push(start);
+//	visited[start] = true;
+//	distance[start] = 0;
+//
+//	while (!q.empty())
+//	{
+//		int node = q.front();
+//		q.pop();
+//
+//		if (node == target)
+//		{
+//			return distance[node];
+//		}
+//
+//		for (int next : graph[node])
+//		{
+//			if (!visited[next])
+//			{
+//				q.push(next);
+//				visited[next] = true;
+//				distance[next] = distance[node] + 1;
+//			}
+//		}
+//	}
+//
+//	return -1;
+//}
+
+vector<int> GetTop3(
+	const vector<int>& nums)
+{
+	// 구현
+	vector<int> vec(nums.begin(), nums.end());
+	sort(vec.begin(), vec.end(), 
+		[](int a, int b)
+		{
+			return a > b;
+		});
+
+	return vector<int>(vec.begin(), vec.begin() + 3);
+}
+
+vector<string> GetFrequentWords(
+	const vector<string>& words)
+{
+	// 구현
+	unordered_map<string, int> m;
+	vector<string> v;
+
+	for (const string& var : words)
+	{
+		m[var]++;
+	}
+
+	for (const auto& var : m)
+	{
+		if (var.second >= 2)
+		{
+			v.push_back(var.first);
+		}
+	}
+
+	sort(v.begin(), v.end());
+	return v;
+}
+
 int main()
 {
 	//pointerFunction();
@@ -616,8 +758,8 @@ int main()
 	int location = 2;
 	int res = solution(priorities, location);*/
 
-	//mapBasic();
-	//setBasic();
+	/*mapBasic();
+	setBasic();*/
 
 	// 폰켓몬
 	/*vector<int> nums = { 3,3,3,2,2,2 };
@@ -638,4 +780,36 @@ int main()
 
 	//binarySearchBasic();
 	dfsBfsBasic();
+
+	/*const vector<int>& nums = { 1, 3, 4, 7, 10 };
+	int target = 15;
+	pair<int, int> res = FindClosestPair(nums, target);*/
+
+	//vector<vector<int>> graph = {
+	//{1, 2},       // 0
+	//{0, 3, 4},    // 1
+	//{0, 4},       // 2
+	//{1, 5},       // 3
+	//{1, 2, 5},    // 4
+	//{3, 4, 6},    // 5
+	//{5}           // 6
+	//};
+	//int res = FindMinDistance(graph, 0, 6);
+
+	//stringBasic();
+
+	/*vector<int> nums = { 5, 1, 8, 3, 9, 2, 7 };
+ 	vector<int> res = GetTop3(nums);
+
+	vector<string> words = {
+	"apple",
+	"banana",
+	"apple",
+	"orange",
+	"banana",
+	"apple",
+	"kiwi"
+	};
+
+	GetFrequentWords(words);*/
 }
